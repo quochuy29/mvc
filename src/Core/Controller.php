@@ -16,6 +16,7 @@ class Controller
     {
         extract($this->vars);
         ob_start();
+
         require(ROOT . "src/Views/" . ucfirst(str_replace("MVC\\\\", '', (str_replace('Controller', '', get_class($this))) . '/' . $filename . '.php')));
         $content_for_layout = ob_get_clean();
         if ($this->layout == false) {

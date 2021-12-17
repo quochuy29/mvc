@@ -24,8 +24,6 @@ class ResourceModel implements ResourceModelInterface
     {
         $md = new Model;
 
-        var_dump($model);
-        die;
         $modelArr = $md->getProperties($model);
 
         if (array_key_exists($this->id, $modelArr)) {

@@ -20,7 +20,6 @@ class Dispatcher
 
         $controller = $this->loadController();
         //giá trị của các thuộc tính của lớp đc tạo từ hàm loadController
-
         call_user_func_array([$controller, $this->request->action], $this->request->params);
         //gọi lại hàm trong loadController với action là edit thì sẽ gọi đến hàm edit
     }
