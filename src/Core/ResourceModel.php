@@ -5,6 +5,7 @@ namespace MVC\Core;
 use MVC\Core\ResourceModelInterface;
 use MVC\Core\Model;
 use CONFIG\Config\Database;
+use PDO;
 
 class ResourceModel implements ResourceModelInterface
 {
@@ -79,9 +80,9 @@ class ResourceModel implements ResourceModelInterface
         $req->execute();
 
         if ($id != NULL) {
-            return $req->fetch();
+            return $req->fetchObject(get_class($this->model));
         } else {
-            return $req->fetchAll();
+            return $req->fetchAll(PDO::FETCH_CLASS, get_class($this->model));
         }
     }
 }

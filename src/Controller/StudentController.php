@@ -40,13 +40,14 @@ class StudentController extends Controller
         $studentRp = new StudentReponsitory();
 
         $d["student"] = $studentRp->get($id);
-
+        var_dump($studentRp);
+        die;
         if (isset($_POST["studentName"])) {
 
             $studentModel = new StudentModel;
             $studentRepository = new StudentReponsitory;
+            $studentModel = $studentRp->get($id);
 
-            $studentModel->setId($id);
             $studentModel->setStudentName($_POST["studentName"]);
             $studentModel->setDob(date('Y-m-d H:i:s'));
             $studentModel->setGender($_POST["gender"]);
